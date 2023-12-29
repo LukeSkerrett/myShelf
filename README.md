@@ -1,3 +1,3 @@
 # MyShelf 
-[mysneakershelf.netlify.app](mysneakershelf.netlify.app)
+[mysneakershelf.netlify.app](https://mysneakershelf.netlify.app/)https://mysneakershelf.netlify.app/)
 
