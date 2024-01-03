@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import validation from './SignupValidation.jsx'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export const Signup = () => {
     const [values, setValues] = useState({
@@ -9,15 +11,23 @@ export const Signup = () => {
         password:''
     })
 
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({})
 
     const handleInput=(event) => {
         setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
     }
 
-    const handleSubmit=(event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(validation(values));
+        if(errors.name === "" && errors.email === "" && errors.password == "") {
+            axios.post('http://localhost:8081/signup', values)
+            .then(res => {
+                navigate('/');
+            })
+            .catch(err => console.log(err));
+        }
     }
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>

@@ -1,7 +1,7 @@
 function validation(values){
     let error = {}
     const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
+    const password_pattern = /^.{8,}$/
 
     if (values.name === ""){
         error.name = "Name should not be empty"
@@ -23,7 +23,7 @@ function validation(values){
         error.password = "Password can not be empty"
     }
     else if(!password_pattern.test(values.password)){
-        error.password = "Incorrect password. Please try again"
+        error.password = "Password must be at least 8 characters"
     }
     else{
         error.password = ""

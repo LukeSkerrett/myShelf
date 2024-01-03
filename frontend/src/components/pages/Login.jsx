@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import './Login.css'
 import validation from './LoginValidation'
 
@@ -10,6 +12,8 @@ export const Login = () => {
         password:''
     })
 
+    const navigate = useNavigate();
+
     const [errors, setErrors] = useState({})
 
     const handleInput=(event) => {
@@ -19,6 +23,20 @@ export const Login = () => {
     const handleSubmit=(event) => {
         event.preventDefault();
         setErrors(validation(values));
+        if(errors.email === "" && errors.password == "") {
+            axios.post('http://localhost:8081/login', values)
+            .then(res => {
+                if(res.data === "Success"){
+                    navigate('/shelf');
+                }
+                else{
+                    alert("Account does not exist")
+                }
+                
+
+            })
+            .catch(err => console.log(err));
+        }
     }
 
   return (
