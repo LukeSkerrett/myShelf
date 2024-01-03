@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import validation from './SignupValidation.jsx'
 import { useNavigate } from 'react-router-dom'
+import './Login.css'
 import axios from 'axios'
 
 export const Signup = () => {

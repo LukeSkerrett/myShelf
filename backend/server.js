@@ -46,6 +46,22 @@ app.post('/login', (req, res) =>{
     })
 })
 
+app.post('/shelf', (req, res) =>{
+    const sql = "SELECT * FROM signup WHERE `email` = ? ";
+    db.query(sql, [req.body.email], (err, data) => {
+        if(err){
+            console.log(err);
+            return res.json("Error");
+        }
+        if(data.length > 0){
+            return data;
+        }
+        else{
+            return res.json("Fail")
+        }
+    })
+})
+
 app.listen(8081, () =>{
     console.log("listening");
 })

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import {Link, NavLink} from "react-router-dom"
 import ShelfImage from '../assets/shelf.png'
 import "./Navbar.css"
@@ -10,7 +9,7 @@ export const Navbar = () => {
     
     <nav>
         <Link to="/" className="title">myShelf <img src= {ShelfImage}/></Link>
-        
+
         <div className="menu" onClick={() => {
             setMenuOpen(!menuOpen);
         }}>

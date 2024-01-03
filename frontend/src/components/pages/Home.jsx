@@ -6,7 +6,7 @@ export const Home = () => {
   return (
     <div className="homepage">
       <div className="Slogan">
-        All your favorite sneakers, all in one place.
+        All your favorite sneakers in one place.
       </div>
       <Login/>
     </div>

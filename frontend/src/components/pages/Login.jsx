@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { Shelf } from './Shelf.jsx'
 import axios from 'axios'
 import './Login.css'
 import validation from './LoginValidation'
@@ -32,15 +33,13 @@ export const Login = () => {
                 else{
                     alert("Account does not exist")
                 }
-                
-
             })
             .catch(err => console.log(err));
         }
     }
 
   return (
-    <div className='d-flex justify-content-center align-items-center vh-100'>
+    <div className='d-flex justify-content-center align-items-start vh-100'>
         <div className='p-3 rounded w-25'>
             <h2>Log-in</h2>
             <form action="" onSubmit ={handleSubmit}>
@@ -55,12 +54,13 @@ export const Login = () => {
                     <input type="password" placeholder='Enter Password' name='password'
                     onChange={handleInput} className='form-control rounded-0'/>
                     {errors.password && <span className='text-danger'> {errors.password} </span>}
-                </div>
-                <button type='submit' className ='btn btn-success w-100 rounded-0'><strong>Login</strong></button>
+                </div> 
+                <button type='submit' className ='btn btn-success w-100 rounded-0'><strong>Login</strong>  </button>
                 <p>You agree to our terms and policies</p>
                 <Link to= "/signup"className ='btn btn-default border w-100 rounded-0 text-decoration-nonte'>Create Account</Link>
             </form>
         </div>
+        <Shelf inputValues={values} />
     </div>
   )
 }
