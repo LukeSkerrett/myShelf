@@ -1,5 +1,5 @@
 # MyShelf 
-[https://mysneakershelf.netlify.app/](https://mysneakershelf.netlify.app/)
+[https://myshelf.site](https://myshelf.site)
 
 Work in progress application for sneaker collectors
 
