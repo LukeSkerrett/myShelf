@@ -1,29 +1,15 @@
 function validation(values){
     let error = {}
-    const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const password_pattern = /^.{8,}$/
-
-    if(values.email === ""){
-        error.email = "Email can not be empty"
+    const username_pattern = /^.{4,}$/
+    if(values.username === ""){
+        error.username = "Username can not be empty"
     }
-    else if(!email_pattern.test(values.email)){
-        error.email = "Email does not exist"
+    else if(!username_pattern.test(values.username)){
+        error.username = "Username must be at least 4 characters"
     }
     else{
-        error.email = ""
+        error.username = ""
     }
-
-    if(values.password === ""){
-        error.password = "Password can not be empty"
-    }
-    else if(!password_pattern.test(values.password)){
-        error.password = "Incorrect password. Please try again"
-    }
-    else{
-        error.password = ""
-    }
-
     return error;
 }
-
 export default validation;

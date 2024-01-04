@@ -9,12 +9,10 @@ import validation from './LoginValidation'
 export const Login = () => {
 
     const [values, setValues] = useState({
-        email: '',
-        password:''
+        username: ''
     })
 
     const navigate = useNavigate();
-
     const [errors, setErrors] = useState({})
 
     const handleInput=(event) => {
@@ -25,11 +23,11 @@ export const Login = () => {
         event.preventDefault();
         const err = validation(values);
         setErrors(err);
-        if(err.email === "" && err.password == "") {
+        if(err.username === "") {
             axios.post('http://localhost:8081/login', values)
             .then(res => {
-                if(res.data != "Error" && res.data.length > 0){
-                    navigate('/shelf');
+                if(res.data != "Error" && res.data != "Fail"){
+                    navigate('/shelf', {state: res.data});
                 }
                 else{
                     alert("Account does not exist")
@@ -38,24 +36,17 @@ export const Login = () => {
             .catch(err => console.log(err));
         }
     }
-
   return (
     <div className='d-flex justify-content-center align-items-start vh-100'>
         <div className='p-3 rounded w-25'>
             <h2>Log-in</h2>
             <form action="" onSubmit ={handleSubmit}>
                 <div className='mb-3'>
-                    <label htmlFor="email"><strong>Email</strong></label>
-                    <input type="email" placeholder='Enter Email' name='email'
+                    <label htmlFor="username"><strong>Username</strong></label>
+                    <input type="text" placeholder='Enter username here...' name='username'
                     onChange={handleInput} className ='form-control rounded-0'/>
-                    {errors.email && <span className='text-danger'> {errors.email} </span>}
+                    {errors.username && <span className='text-danger'> {errors.username} </span>}
                 </div>
-                <div className='mb-3'>
-                    <label htmlFor="password"><strong>Password</strong></label>
-                    <input type="password" placeholder='Enter Password' name='password'
-                    onChange={handleInput} className='form-control rounded-0'/>
-                    {errors.password && <span className='text-danger'> {errors.password} </span>}
-                </div> 
                 <button type='submit' className ='btn btn-success w-100 rounded-0'><strong>Login</strong>  </button>
                 <p>You agree to our terms and policies</p>
                 <Link to= "/signup"className ='btn btn-default border w-100 rounded-0 text-decoration-nonte'>Create Account</Link>

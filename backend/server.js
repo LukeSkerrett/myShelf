@@ -1,40 +1,42 @@
 const express = require("express");
 const mysql = require('mysql2');
 const cors = require('cors');
-const SneaksAPI = require('sneaks-api');
-const sneaks = new SneaksAPI();
-
+require('dotenv').config()
 const app = express();
 app.use(cors());
 app.use(express.json());
+const db = mysql.createConnection(process.env.DATABASE_URL)
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "users"
+app.post('/checkexist', (req, res)=>{
+    const sql = "SELECT * FROM users WHERE `username` = ?";
+    db.query(sql, [req.body.username], (err, data) => {
+        if(err){
+            return res.json("Error");
+        }
+        if(data.length > 0){
+            return res.json("Exists");
+        }
+        return res.json("")
+    })
 })
 
 app.post('/signup', (req, res) =>{
-    const sql = "INSERT INTO signup (`name`,`email`,`password`) VALUES (?)";
     const values = [
-        req.body.name,
-        req.body.email,
-        req.body.password
+        req.body.username
     ]
-    db.query(sql, [values], (err, data) => {
+    const insertSQL = "INSERT INTO users (`username`) VALUES (?)";
+    db.query(insertSQL, [values], (err, data) => {
         if(err){
             console.log(err);
             return res.json("Error");
         }
-        
         return res.json(data);
     })
 })
 
 app.post('/login', (req, res) =>{
-    const sql = "SELECT * FROM signup WHERE `email` = ? AND `password` = ?";
-    db.query(sql, [req.body.email, req.body.password], (err, data) => {
+    const sql = "SELECT * FROM users WHERE `username` = ?";
+    db.query(sql, [req.body.username], (err, data) => {
         if(err){
             return res.json("Error");
         }
@@ -62,14 +64,6 @@ app.post('/sneakershelf', (req, res) =>{
     })
 })
 
-app.get('/searchsneakers', (req, res) => {
-    sneaks.getMostPopular(100, function(err, products){
-        if(err){
-            return res.json("Error");
-        }
-        return res.json(products)
-    })
-})
 
 app.listen(8081, () =>{
     console.log("listening");

@@ -7,9 +7,7 @@ import axios from 'axios'
 
 export const Signup = () => {
     const [values, setValues] = useState({
-        name: '',
-        email: '',
-        password:''
+        username: ''
     })
 
     const navigate = useNavigate();
@@ -23,12 +21,21 @@ export const Signup = () => {
         event.preventDefault();
         const err = validation(values);
         setErrors(err);
-        if(err.name === "" && err.email === "" && err.password === "") {
-            axios.post('http://localhost:8081/signup', values)
-            .then(res => {
-                navigate('/');
+        if(err.username === "") {
+            axios.post('http://localhost:8081/checkexist', values)
+            .then(res =>{
+                if(res.data == "Exists"){
+                    alert('Username already exists! Please choose a different username')
+                }
+                else{
+                    axios.post('http://localhost:8081/signup', values)
+                    .then(res => {
+                        navigate('/');
+                    })
+                    .catch(err => console.log(err));
+                }
             })
-            .catch(err => console.log(err));
+
         }
     }
     
@@ -38,22 +45,10 @@ export const Signup = () => {
             <h2>Fill your shelf!</h2>
             <form action="" onSubmit={handleSubmit}>
                 <div className='mb-3'>
-                    <label htmlFor="name"><strong>Name</strong></label>
-                    <input type="text" placeholder='Enter Name' name='name'
+                    <label htmlFor="name"><strong>Username</strong></label>
+                    <input type="text" placeholder='Enter here...' name='username'
                     onChange={handleInput} className ='form-control rounded-0'/>
-                    {errors.name && <span className='text-danger'> {errors.name} </span>}
-                </div>
-                <div className='mb-3'>
-                    <label htmlFor="email"><strong>Email</strong></label>
-                    <input type="email" placeholder='Enter Email' name='email'
-                    onChange={handleInput} className ='form-control rounded-0'/>
-                    {errors.email && <span className='text-danger'> {errors.email} </span>}
-                </div>
-                <div className='mb-3'>
-                    <label htmlFor="password"><strong>Password</strong></label>
-                    <input type="password" placeholder='Enter Password' name='password'
-                    onChange={handleInput} className='form-control rounded-0'/>
-                    {errors.password && <span className='text-danger'> {errors.password} </span>}
+                    {errors.username && <span className='text-danger'> {errors.username} </span>}
                 </div>
                 <button type='submit' className ='btn btn-success w-100 rounded-0'><strong>Sign up</strong></button>
                 <p>You agree to our terms and policies</p>
