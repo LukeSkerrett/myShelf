@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { SneakerShelf } from './sneakershelf';
 import axios from 'axios'
+import { Searchbar } from './Searchbar';
 
-export const Shelf = ({ inputValues }) => {
-    let userData = inputValues;
-    axios.post('http://localhost:8081/shelf', userData)
-    .then 
+export const Shelf = () => {
+
+  const [sneakerData, setSneakerData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8081/searchsneakers")
+    .then(res => {
+      setSneakerData(res.data)
+    })
+    .catch(error => {
+      console.error('Error fetching sneaker data: ', error);
+    })
+  }, []);
+
   return (
-    <div> </div>
+    <div className="shelfpage">
+          <Searchbar placeholder="Search for sneakers..." data={sneakerData} />
+          <SneakerShelf />
+    </div>
+
   )
 };

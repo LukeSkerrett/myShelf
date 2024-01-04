@@ -21,8 +21,9 @@ export const Signup = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setErrors(validation(values));
-        if(errors.name === "" && errors.email === "" && errors.password == "") {
+        const err = validation(values);
+        setErrors(err);
+        if(err.name === "" && err.email === "" && err.password === "") {
             axios.post('http://localhost:8081/signup', values)
             .then(res => {
                 navigate('/');
@@ -30,6 +31,7 @@ export const Signup = () => {
             .catch(err => console.log(err));
         }
     }
+    
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>
         <div className='p-3 rounded w-25'>

@@ -23,11 +23,12 @@ export const Login = () => {
 
     const handleSubmit=(event) => {
         event.preventDefault();
-        setErrors(validation(values));
-        if(errors.email === "" && errors.password == "") {
+        const err = validation(values);
+        setErrors(err);
+        if(err.email === "" && err.password == "") {
             axios.post('http://localhost:8081/login', values)
             .then(res => {
-                if(res.data === "Success"){
+                if(res.data != "Error" && res.data.length > 0){
                     navigate('/shelf');
                 }
                 else{
@@ -60,7 +61,6 @@ export const Login = () => {
                 <Link to= "/signup"className ='btn btn-default border w-100 rounded-0 text-decoration-nonte'>Create Account</Link>
             </form>
         </div>
-        <Shelf inputValues={values} />
     </div>
   )
 }
