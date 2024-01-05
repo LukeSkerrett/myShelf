@@ -1,0 +1,20 @@
+.sneakershelf{
+    margin: 3%;
+}
+span{
+    color: #2b2d42;
+    font-size:x-large
+}
+thead{
+    background-color:#2b2d42;
+    color:white;
+}
+.addbtn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 15rem
+}
+td{
+    background-color:#2b2d42;
+}

@@ -64,7 +64,46 @@ app.post('/sneakershelf', (req, res) =>{
     })
 })
 
+app.post('/getsneakers', (req, res) =>{
 
+    const sql = "SELECT * FROM sneakers WHERE `username` = ?"
+    db.query(sql, [req.body.username], (err, data) =>{
+        if(err){
+            return res.json("Error");
+        }
+        if(data.length > 0){
+            return res.json(data);
+        }
+        else{
+            return res.json("Empty")
+        }
+    })
+})
+
+app.post('/createsneaker', (req, res) => {
+    const sql = "INSERT INTO sneakers (`username`, `name`, `colorway`, `year`) VALUES (?)"
+    const values = [
+        req.body.username,
+        req.body.name,
+        req.body.color,
+        req.body.year
+    ]
+    db.query(sql, [values], (err,data) => {
+        if (err){
+            return res.json(err);
+        }
+        return res.json("created")
+    })
+})
+
+app.delete('/delete/:id', (req, res) => {
+    const sql = "DELETE FROM sneakers where id = ?";
+    const id = req.params.id;
+    db.query(sql, [id], (err, data) => {
+        if(err) return res.json(err);
+        return res.json("Deleted")
+    })
+})
 app.listen(8081, () =>{
     console.log("listening");
 })

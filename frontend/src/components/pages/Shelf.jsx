@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import './shelf.css'
 import axios from 'axios'
+import { SneakerShelf } from './sneakershelf'
 
 export const Shelf = () => {
   const location = useLocation();
-  console.log(location);
-  const username = location.state.username;
+  const username = location.state.username
   return (
     <div className="shelfpage">
-      {username}
+      <h1>Welcome to your shelf, {username}</h1>
+      <SneakerShelf username ={username}/>
     </div>
 
   )

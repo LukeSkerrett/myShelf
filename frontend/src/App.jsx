@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import './App.css';
 import { Navbar } from './components/Navbar';
-import {About, Contact, Home, Services, Signup, Shelf} from "./components/pages/index.js";
+import {About, Contact, Home, Services, Signup, Shelf, CreateSneaker} from "./components/pages/index.js";
 
 function App() {
   return(
@@ -10,6 +10,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/shelf" element={<Shelf/>}/>
+      <Route path='/createsneaker' element={<CreateSneaker />}/>
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact />}/>
