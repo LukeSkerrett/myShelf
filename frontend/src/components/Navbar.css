@@ -1,5 +1,5 @@
 .active{
-    background-color: #a8edea
+    background-color: #edf2f4;
 } 
 nav{
     display: flex;
@@ -40,7 +40,7 @@ nav ul li a{
 }
 
 nav ul li a:not(.active):hover{
-    background-color: #3d348b
+    background-color: #edf2f4;
 }
 
 nav .menu{

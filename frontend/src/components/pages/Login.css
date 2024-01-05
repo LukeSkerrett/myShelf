@@ -5,9 +5,12 @@
     background-color: #2b2d42;
 }
 .btn-default{
-    color: white;
+    color: #edf2f4;
 }
 h2{
     text-align: center;
+}
+.text-danger{
+    font-size: medium;
 }
 

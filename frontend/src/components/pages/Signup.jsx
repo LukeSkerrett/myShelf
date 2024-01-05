@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import validation from './SignupValidation.jsx'
 import { useNavigate } from 'react-router-dom'
+import { MdOutlineAccountCircle } from "react-icons/md";
+import { IoIosLogIn } from "react-icons/io";
 import './Login.css'
 import axios from 'axios'
 
@@ -42,7 +44,7 @@ export const Signup = () => {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>
         <div className='p-3 rounded w-25'>
-            <h2>Fill your shelf!</h2>
+            <h2>Create Account</h2>
             <form action="" onSubmit={handleSubmit}>
                 <div className='mb-3'>
                     <label htmlFor="name"><strong>Username</strong></label>
@@ -50,9 +52,9 @@ export const Signup = () => {
                     onChange={handleInput} className ='form-control rounded-0'/>
                     {errors.username && <span className='text-danger'> {errors.username} </span>}
                 </div>
-                <button type='submit' className ='btn btn-success w-100 rounded-0'><strong>Sign up</strong></button>
+                <button type='submit' className ='btn btn-default w-100 rounded-0'><strong>Sign up <MdOutlineAccountCircle />  </strong></button>
                 <p>You agree to our terms and policies</p>
-                <Link to= "/"className ='btn btn-default border w-100 rounded-0 text-decoration-nonte'>Login</Link>
+                <Link to= "/"className ='btn btn-default w-100 rounded-0 text-decoration-nonte'>Login <IoIosLogIn /> </Link>
             </form>
         </div>
     </div>

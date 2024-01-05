@@ -7,6 +7,7 @@ export const SneakerShelf = (username) => {
   const [empty, setEmpty] = useState([])
   const [data, setData] = useState([]);
   const navigate = useNavigate()
+  const style = {backgroundColor: "#2b2d42", color:"#edf2f4"}
   useEffect(() => {
     axios.post('http://localhost:8081/getsneakers', username)
     .then(res => {
@@ -34,22 +35,22 @@ export const SneakerShelf = (username) => {
   return (
     <div className='sneakershelf'>
       {empty && <span>Your shelf looks empty, add some shoes!</span>}
-      <table className='table'>
-        <thead>
-          <tr>
-            <th key='sneakername'>Sneaker Name</th>
-            <th key='colorway'>Colorway</th>
-            <th key='year'>Year Released</th>
-            <th key='edit'>Edit</th>
+      <table className='table' >
+        <thead >
+          <tr  >
+            <th key='sneakername' style={style} >Sneaker Name</th>
+            <th key='colorway' style={style}>Colorway</th>
+            <th key='year' style={style}>Year Released</th>
+            <th key='edit' style ={style}>Edit</th>
           </tr>
         </thead>
         <tbody>
           {data.map( (d,i) =>(
             <tr>
-              <td>{d.name}</td>
-              <td>{d.colorway}</td>
-              <td>{d.year}</td>
-              <td>
+              <td style={style}>{d.name}</td>
+              <td style={style}>{d.colorway}</td>
+              <td style={style}>{d.year}</td>
+              <td style={style} >
                 <button onClick={e => handleDelete(d.id)} className='btn btn-sm btn-danger'>Delete</button>
               </td>
             </tr>
