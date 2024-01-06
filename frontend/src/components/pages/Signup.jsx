@@ -31,7 +31,7 @@ export const Signup = () => {
                     alert('Username already exists! Please choose a different username')
                 }
                 else{
-                    axios.post(`${SERVER_URL}}/signup`, values)
+                    axios.post(`${SERVER_URL}/signup`, values)
                     .then(res => {
                         navigate('/');
                     })
