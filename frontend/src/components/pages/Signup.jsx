@@ -25,7 +25,7 @@ export const Signup = () => {
         const err = validation(values);
         setErrors(err);
         if(err.username === "") {
-            axios.post(`${SERVER_URL}}/checkexist`, values)
+            axios.post(`${SERVER_URL}/checkexist`, values)
             .then(res =>{
                 if(res.data == "Exists"){
                     alert('Username already exists! Please choose a different username')
