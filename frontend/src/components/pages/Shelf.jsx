@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import './shelf.css'
-import axios from 'axios'
-import { SneakerShelf } from './sneakershelf'
+import { SneakerShelf } from './SneakerShelf'
 
 export const Shelf = () => {
   const location = useLocation();

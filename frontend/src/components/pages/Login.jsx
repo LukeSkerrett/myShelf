@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './Login.css'
 import validation from './LoginValidation'
+import {SERVER_URL} from './index'
 import { IoIosLogIn } from "react-icons/io";
 import { GiRunningShoe } from "react-icons/gi";
 import { MdOutlineAccountCircle } from "react-icons/md";
@@ -26,7 +27,7 @@ export const Login = () => {
         const err = validation(values);
         setErrors(err);
         if(err.username === "") {
-            axios.post('http://localhost:8081/login', values)
+            axios.post(`${SERVER_URL}/login`, values)
             .then(res => {
                 if(res.data != "Error" && res.data != "Fail"){
                     navigate('/shelf', {state: res.data[0]});

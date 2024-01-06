@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './SneakerShelf.css'
 import { Link, useNavigate } from 'react-router-dom'
+import { MdDriveFileRenameOutline } from "react-icons/md";
+import { IoColorPaletteSharp } from "react-icons/io5";
+import { PiCalendarDuotone } from "react-icons/pi";
+import { SERVER_URL } from "./index";
 
 export const SneakerShelf = (username) => {
   const [empty, setEmpty] = useState([])
   const [data, setData] = useState([]);
   const navigate = useNavigate()
+
   const style = {backgroundColor: "#2b2d42", color:"#edf2f4"}
   useEffect(() => {
-    axios.post('http://localhost:8081/getsneakers', username)
+    axios.post(`${SERVER_URL}/getsneakers`, username)
     .then(res => {
       if(res.data == "Empty"){
         setEmpty("Empty")
@@ -25,7 +30,7 @@ export const SneakerShelf = (username) => {
   })
 
   const handleDelete = (id) =>{
-    axios.delete('http://localhost:8081/delete/'+id)
+    axios.delete(`${SERVER_URL}/delete/`+id)
     .then(res =>  {
       navigate('/shelf', {state: username})
       location.reload()
@@ -38,9 +43,9 @@ export const SneakerShelf = (username) => {
       <table className='table' >
         <thead >
           <tr  >
-            <th key='sneakername' style={style} >Sneaker Name</th>
-            <th key='colorway' style={style}>Colorway</th>
-            <th key='year' style={style}>Year Released</th>
+            <th key='sneakername' style={style} >Sneaker Name <MdDriveFileRenameOutline /> </th>
+            <th key='colorway' style={style}>Colorway <IoColorPaletteSharp /> </th>
+            <th key='year' style={style}>Year Released <PiCalendarDuotone /> </th>
             <th key='edit' style ={style}>Edit</th>
           </tr>
         </thead>
@@ -57,7 +62,7 @@ export const SneakerShelf = (username) => {
           ))}
         </tbody>
       </table>
-      <Link to={"/createsneaker"} state={ {user: username} } className='btn btn-success addbtn'> Add More </Link>
+      <Link to={"/createsneaker"} state={ {user: username} } className='btn  addbtn'> Add More </Link>
     </div>
   )
 }

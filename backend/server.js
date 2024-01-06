@@ -41,6 +41,7 @@ app.post('/login', (req, res) =>{
             return res.json("Error");
         }
         if(data.length > 0){
+            console.log("logged in")
             return res.json(data);
         }
         else{
@@ -92,6 +93,7 @@ app.post('/createsneaker', (req, res) => {
         if (err){
             return res.json(err);
         }
+        console.log("sneaker created")
         return res.json("created")
     })
 })

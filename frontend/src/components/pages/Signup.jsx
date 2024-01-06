@@ -4,6 +4,7 @@ import validation from './SignupValidation.jsx'
 import { useNavigate } from 'react-router-dom'
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { IoIosLogIn } from "react-icons/io";
+import {SERVER_URL} from './index'
 import './Login.css'
 import axios from 'axios'
 
@@ -24,13 +25,13 @@ export const Signup = () => {
         const err = validation(values);
         setErrors(err);
         if(err.username === "") {
-            axios.post('http://localhost:8081/checkexist', values)
+            axios.post(`${SERVER_URL}}/checkexist`, values)
             .then(res =>{
                 if(res.data == "Exists"){
                     alert('Username already exists! Please choose a different username')
                 }
                 else{
-                    axios.post('http://localhost:8081/signup', values)
+                    axios.post(`${SERVER_URL}}/signup`, values)
                     .then(res => {
                         navigate('/');
                     })

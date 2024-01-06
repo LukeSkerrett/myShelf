@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { SERVER_URL } from './index'
+
 import './CreateSneaker.css'
 export const CreateSneaker = () => {
     const location = useLocation();
@@ -12,7 +14,7 @@ export const CreateSneaker = () => {
     const username = location.state.user.username
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8081/createsneaker', {username, name, color, year})
+        axios.post(`${SERVER_URL}/createsneaker`, {username, name, color, year})
         .then(res => {
             navigate('/shelf', {state: location.state.user})
         })

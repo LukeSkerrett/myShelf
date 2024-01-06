@@ -7,7 +7,7 @@ span{
 }
 thead{
     background-color:#2b2d42;
-    color:white;
+    color:#edf2f4;
 }
 .addbtn{
     display: block;
@@ -15,6 +15,7 @@ thead{
     margin-top: 20px;
     width: 15rem;
     box-shadow: 5px 5px 5px #2b2d42;
+    color: #edf2f4;
 }
 table{
     box-shadow: 5px 5px 5px #2b2d42;
