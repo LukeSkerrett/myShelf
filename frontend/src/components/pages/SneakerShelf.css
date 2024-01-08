@@ -1,9 +1,12 @@
 .sneakershelf{
     margin: 3%;
 }
+.btn-danger{
+    width:4.5rem
+}
 span{
     color: #2b2d42;
-    font-size:x-large
+    font-size:2.5rem
 }
 thead{
     background-color:#2b2d42;
@@ -23,3 +26,19 @@ table{
     border-spacing: 0;
     border: 1px solid black;
 }
+
+th:first-of-type {
+    border-top-left-radius: 10px;
+  }
+  th:last-of-type {
+    border-top-right-radius: 10px;
+  }
+  tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 10px;
+  }
+  tr:last-of-type td:last-of-type {
+    border-bottom-right-radius: 10px;
+  }
+  .tidelete{
+    width:150%
+  }

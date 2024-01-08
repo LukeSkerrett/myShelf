@@ -42,8 +42,12 @@ export const Signup = () => {
         }
     }
     
-  return (
-    <div className='d-flex justify-content-center align-items-center vh-100'>
+  return ( 
+    <div className="signupWrapper">
+    <div className="Slogan">
+        Join Now.
+      </div>
+    <div className='d-flex justify-content-center align-items-start vh-100'>
         <div className='p-3 rounded w-25'>
             <h2>Create Account</h2>
             <form action="" onSubmit={handleSubmit}>
@@ -58,6 +62,7 @@ export const Signup = () => {
                 <Link to= "/"className ='btn btn-default w-100 rounded-0 text-decoration-nonte'>Login <IoIosLogIn /> </Link>
             </form>
         </div>
+    </div>
     </div>
   )
 }

@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { SERVER_URL } from './index'
-
+import { PiSneakerMove } from "react-icons/pi";
+import { IoIosAddCircle } from "react-icons/io";
 import './CreateSneaker.css'
 export const CreateSneaker = () => {
     const location = useLocation();
@@ -22,7 +23,7 @@ export const CreateSneaker = () => {
     }
   return (
     <div className='createSneaker'>
-        <h1>Fill your shelf</h1>
+        <h1>Fill your shelf <PiSneakerMove /></h1>
         <div className='d-flex vh-100  justify-content-center align-items-start'>
             <div className='w-50 bg-white rounded p-3'>
                 <form onSubmit = {handleSubmit}>
@@ -42,7 +43,7 @@ export const CreateSneaker = () => {
                         <input type="text" placeholder='Enter Year...' className ='form-control' 
                         onChange={e=> setYear(e.target.value)}/>
                     </div>
-                    <button className='btn btn-success'>Submit</button>
+                    <button className='btn'> Add <IoIosAddCircle /></button>
                 </form>
             </div>
         </div>

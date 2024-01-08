@@ -36,7 +36,7 @@ nav ul li a{
     padding: 0.5rem;
     margin: 0 0.5rem;
     border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 
 nav ul li a:not(.active):hover{

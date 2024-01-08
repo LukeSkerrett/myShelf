@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link, NavLink} from "react-router-dom"
 import ShelfImage from '../assets/shelf.png'
+import { FaCircleInfo } from "react-icons/fa6";
 import "./Navbar.css"
 
 export const Navbar = () => {
@@ -19,13 +20,7 @@ export const Navbar = () => {
         </div>
         <ul className={menuOpen ?"open":""}>
             <li>
-                <NavLink to= "/about">About</NavLink>
-            </li>
-            <li>
-                <NavLink to= "/services">Services</NavLink>
-            </li>
-            <li>
-                <NavLink to= "/contact">Contact</NavLink>
+                <NavLink to= "/about"> <FaCircleInfo /> </NavLink>
             </li>
         </ul>
     </nav>

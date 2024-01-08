@@ -1,7 +1,5 @@
 export * from "./Home"
 export * from "./About"
-export * from "./Contact"
-export * from "./Services"
 export * from  "./Signup"
 export * from "./Shelf"
 export * from "./CreateSneaker"
