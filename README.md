@@ -1,4 +1,4 @@
-# myShelf:books:  - All Your Favorite Sneakers in One Place 
+# myShelf 📚  - All Your Favorite Sneakers in One Place 
 ## 🔗 [myshelf.site](https://myshelf.site/) 
 
 
