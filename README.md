@@ -1,4 +1,4 @@
-# myShelf
+# myShelf - All your favorite sneakers in one place
 ## Visit here: [myshelf.site](https://myshelf.site/)
 
 
