@@ -19,8 +19,10 @@ app.post('/checkexist', (req, res)=>{
         return res.json("")
     })
 })
-app.get(`cron`, (req, res)=>{
+
+app.get('/cron', (req, res)=>{
     console.log('CRON JOB')
+    return res.json('CRON');
 })
 
 app.post('/signup', (req, res) =>{
