@@ -1,2 +1,2 @@
 # MyShelf 
-[myshelf.site](myshelf.site)
+[myshelf.site](https://myshelf.site/)
