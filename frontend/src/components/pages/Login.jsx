@@ -6,7 +6,6 @@ import './Login.css'
 import validation from './LoginValidation'
 import {SERVER_URL} from './index'
 import { IoIosLogIn } from "react-icons/io";
-import { GiRunningShoe } from "react-icons/gi";
 import { MdOutlineAccountCircle } from "react-icons/md";
 const shoeStyle = { color: "#2b2d42"}
 export const Login = () => {

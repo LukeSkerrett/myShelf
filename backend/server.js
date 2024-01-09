@@ -19,6 +19,9 @@ app.post('/checkexist', (req, res)=>{
         return res.json("")
     })
 })
+app.get(`cron`, (req, res)=>{
+    console.log('CRON JOB')
+})
 
 app.post('/signup', (req, res) =>{
     const values = [
