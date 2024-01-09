@@ -1,5 +1,6 @@
-# MyShelf 
-[myshelf.site](https://myshelf.site/)
+# myShelf
+## [myshelf.site](https://myshelf.site/)
+
 
 Sneaker collecting web application inspired by my love for shoes. 
 
