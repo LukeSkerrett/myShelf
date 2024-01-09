@@ -43,7 +43,7 @@ export const Login = () => {
 
         <div className='d-flex justify-content-center align-items-start vh-100'>
             <div className='p-3 rounded w-25'>
-                <h2>Log-in <GiRunningShoe style={shoeStyle}/></h2>
+                <h2>Login</h2>
                 <form action="" onSubmit ={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor="username"><strong>Username</strong></label>
