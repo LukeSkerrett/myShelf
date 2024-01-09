@@ -1,4 +1,4 @@
-# myShelf - all your favorite sneakers in one place :books:
+# myShelf - All Your Favorite Sneakers in One Place :books: :shoe:
 ## Visit here: [myshelf.site](https://myshelf.site/)
 
 
