@@ -21,7 +21,7 @@ export const Navbar = () => {
         </div>
         <ul className={menuOpen ?"open":""}>
             <li>
-                <a href="https://github.com/LukeSkerrett/myshelf-app"> <FaGithub/></a>
+                <a href="https://github.com/LukeSkerrett/myshelf-app" target="_blank"> <FaGithub/></a>
             </li>
             <li>
                 <NavLink to= "/about"> <FaCircleInfo /> </NavLink>
