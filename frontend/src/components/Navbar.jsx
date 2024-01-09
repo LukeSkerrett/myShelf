@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link, NavLink} from "react-router-dom"
 import ShelfImage from '../assets/shelf.png'
 import { FaCircleInfo } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
 import "./Navbar.css"
 
 export const Navbar = () => {
@@ -19,6 +20,9 @@ export const Navbar = () => {
             <span></span>
         </div>
         <ul className={menuOpen ?"open":""}>
+            <li>
+                <a href="https://github.com/LukeSkerrett/myshelf-app"> <FaGithub/></a>
+            </li>
             <li>
                 <NavLink to= "/about"> <FaCircleInfo /> </NavLink>
             </li>
